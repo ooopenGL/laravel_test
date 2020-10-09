@@ -42,5 +42,18 @@ Route::delete('task/{id}', function ($id) {
     return 'Delete Task ' . $id;
 })->name('task.delete');
 
+// 视图
+// php
+Route::get('user/{id?}', function ($id = 1) {
+    return view('user.profile', ['id' => $id]);
+});
 
+// blade
+Route::get('page/{id}', function ($id) {
+    return view('page.show', ['id' => $id]);
+})->where('id', '[0-9]+');
 
+// css
+Route::get('page/css', function () {
+    return view('page.style');
+});
