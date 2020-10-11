@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('form/input_data', 'FormController@input_data');
+Route::post('form/path_param/{id}/{code}', 'FormController@path_param');

@@ -57,3 +57,7 @@ Route::get('page/{id}', function ($id) {
 Route::get('page/css', function () {
     return view('page.style');
 });
+
+// web的post和delete方法默认开启csrf检查，可配置关闭
+Route::post('form/input_data', 'FormController@input_data');
+Route::post('form/path_param/{id}/{code}', 'FormController@path_param');
