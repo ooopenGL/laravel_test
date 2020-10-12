@@ -16,7 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
+Vue.component('fileupload-component', require('./components/FileUploadComponent.vue'));
 const app = new Vue({
     el: '#app'
 });

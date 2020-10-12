@@ -61,3 +61,7 @@ Route::get('page/css', function () {
 // web的post和delete方法默认开启csrf检查，可配置关闭
 Route::post('form/input_data', 'FormController@input_data');
 Route::post('form/path_param/{id}/{code}', 'FormController@path_param');
+
+// 文件上传
+Route::get('/file/file_page', 'FileController@file_page');
+Route::post('/file/file_upload', 'FileController@file_upload');
