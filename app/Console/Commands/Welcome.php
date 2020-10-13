@@ -11,7 +11,7 @@ class Welcome extends Command
      *
      * @var string
      */
-    protected $signature = 'welcome';
+    protected $signature = "welcome {name} {age} {others*} {--city=}";
 
     /**
      * The console command description.
@@ -38,6 +38,8 @@ class Welcome extends Command
     public function handle()
     {
         //
-        var_dump('hello');
+        $argv = $this->argument();
+        $opt = $this -> options();
+        var_dump($argv, $opt);
     }
 }
