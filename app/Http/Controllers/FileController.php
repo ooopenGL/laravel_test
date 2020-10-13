@@ -19,6 +19,20 @@ class FileController extends Controller
 
     public function file_upload(Request $request)
     {
+        $this->validate($request,
+            [
+            'title' => 'bail|required|string|between:2,32',
+            'url' => 'sometimes|url|max:200',
+            'picture' => 'nullable|string'
+            ],
+            [
+                'title.required' => '标题字段不能为空',
+                'title.string' => '标题字段仅支持字符串',
+                'title.between' => '标题长度必须介于2-32之间',
+                'url.url' => 'URL格式不正确，请输入有效的URL',
+                'url.max' => 'URL长度不能超过200',
+            ]);
+
         if ($request->hasFile('picture')) {
             $picture = $request->file('picture');
             if (!$picture->isValid()) {
